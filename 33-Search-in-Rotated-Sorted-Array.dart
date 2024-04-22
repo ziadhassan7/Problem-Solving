@@ -1,3 +1,47 @@
+//Better Explanation 
+class Solution {
+  int search(List<int> nums, int target) {
+
+    int l=0;
+    int r=nums.length-1;
+    while(l<=r){
+        int mid = (l+r) ~/2;
+
+        if(nums[mid] == target){
+            return mid;
+        }
+
+        //mid is bigger than start, 
+        //we are in the first portion (big numbers)
+        if(nums[mid] >= nums[l]){
+            //nums[l] < target < nums[mid] ==> then the target is in the first portion (our current portion)
+            if(nums[l] <= target && target < nums[mid]) {
+                r=mid-1;
+
+            //else => second portion (other portion)
+            } else {
+                l=mid+1;
+            }
+
+        //mid is smaller than start, 
+        //we are in the second portion (small numbers)
+        } else {
+            //nums[mid] < target < nums[r] ==> then the target is in the second portion (our current portion)
+            if(nums[mid] < target && target <= nums[r]){
+                l=mid+1;
+
+            //else, the other portion
+            } else {
+                r=mid-1;
+            }
+        }
+    }
+
+    return -1;
+  }
+}
+
+/*
 class Solution {
   int search(List<int> nums, int target) {
 
@@ -56,6 +100,7 @@ class Solution {
     return -1;
   }
 }
+*/
 
 /*
 //Not a good approach
