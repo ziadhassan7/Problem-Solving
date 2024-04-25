@@ -1,3 +1,8 @@
-Hello,
+# LeetCode
 
-This is just me practicing some of my problem solving skills and studying Data Structure.
+This repository contains my solutions to LeetCode problems.
+
+Created with :heart: by [LeetPush](https://github.com/husamahmud/LeetPush)
+
+Made by [Mahmoud Hamdy](https://github.com/TutTrue) - [Husam](https://github.com/husamahmud)
+
