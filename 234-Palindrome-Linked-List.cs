@@ -10,6 +10,7 @@
  * }
  */
 
+
 //Fast/Slow Pointers
 public class Solution {
     public bool IsPalindrome(ListNode head) {
@@ -17,6 +18,7 @@ public class Solution {
         ListNode slow = head;
 
         //Fast/Slow Pointers (when fast is in the end, slow will be in the middle)
+        //loop till there is no next element (but first check if 'first' exists [null safe])
         while(fast != null && fast.next != null){
             fast= fast.next.next;
             slow= slow.next;
@@ -52,3 +54,32 @@ public class Solution {
         return true;
     }
 }
+
+
+
+/*
+// Using Array and Two Pointers
+// (Extra memory for the Array)
+
+public class Solution {
+    public bool IsPalindrome(ListNode head) {
+        //Save LinkedList in an array
+        List<int> list = new List<int>();
+        while (head != null){
+            list.Add(head.val);
+            head = head.next; 
+        }
+
+        //Use two pointers approach
+        int l=0;
+        int r=list.Count-1;
+        while(l<=r){
+            if(list[l] != list[r]) return false;
+            l++;
+            r--;
+        }
+
+        return true;
+    }
+}
+*/
