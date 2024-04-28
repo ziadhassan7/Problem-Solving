@@ -12,8 +12,11 @@ class Solution {
     ListNode? left = dummy;
     ListNode? right = dummy;
 
+    /*
+    //Dummy node: solved this and [1,2] n=2
     //Edge case: (only one element)
     if(head?.next == null) return null;
+    */
 
     //give right a head start
     for(int i=1; i<=n; i++){
