@@ -8,6 +8,7 @@
  */
 public class Solution {
     public void DeleteNode(ListNode node) {
+        //it is guaranteed that the given node node is not the last node in the linked list.
         node.val = node.next.val;
         node.next = node.next.next;
     }
