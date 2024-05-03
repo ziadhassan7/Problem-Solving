@@ -62,7 +62,7 @@ class Helper{
     }
 
     Node removeLeastUsed(){
-        //remove from the list and delete the LRU from the hashmap
+        //get LRU from the hashmap, and remove it
         Node lru = left.next!;
         removeNode(lru);
         return lru;
@@ -78,10 +78,23 @@ class Helper{
 
     //insert node at right
     void insertNode(Node node) {
-        Node prev = right.prev!;
-        prev.next = node;
+
+        ///-----Add the new node to the last of the list
+        //save the prev of the right (the recent element)
+        Node oldMostRecent = right.prev!; 
+        //the next of (the most recent) => points to this node (adding it to the linked list in the right)
+        oldMostRecent.next = node;
+
+
+        ///----Make right point to the new recent element (our new node)
+        //Now adjust the pointer to the most recent element to this node
         right.prev = node;
-        node.prev = prev;
+
+
+        ///----Make new connections to our new node
+        //this node .prev => becomes (the prev of the old most recent)
+        node.prev = oldMostRecent;
+        //this node .next => points to the dummy (right) node with all its connections
         node.next = right;
     }
 }
