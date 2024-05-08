@@ -27,7 +27,7 @@ class Solution {
     }
 
 
-    //Try every position, and run dfs
+    //Try every position, and run dfs, of all directions (just -left, right, top, bottom-)
     for (int r = 0; r < rows; r++) {
         for (int c = 0; c < columns; c++) {
             if (dfs(r, c, 0)) return true;
